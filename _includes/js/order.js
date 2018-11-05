@@ -48,13 +48,17 @@ $('#order_window .order_steps').on('beforeChange', function(event, slick, curren
   }
 });
 
+$('#order_window .order_steps').on('afterChange', function(){
+  calc_height();
+});
+
+
 // triggered on order click
 $('.js_order').click(function(){
   var button = $(this);
   var product = button.parents('.product_item');
   var amount = product.find('.input_amount input').val();
   var stock = product.data('product_stock');
-  console.log(stock < amount);
   if (amount > 0 && stock >= amount) {
     order_init(product);
   } else if ( stock < amount ) {
@@ -93,18 +97,20 @@ $('.error_message').click( function(){
   }
 })
 
+function calc_height() {
+  var order_height = $('#order_window').outerHeight(true);
+  $('.order_window__container').css({
+    'height': order_height,
+  });
+}
+
 function open_order() {
   $('#order_window .order_steps').slick('slickGoTo', 0);
   $('html, body').animate({
     scrollTop: 0
   }, 400);
-  var order_height = $('#order_window').outerHeight(true);
-  $('.order_window__container').css({
-    'height': order_height,
-  });
+  calc_height();
   $('body').addClass('deactivated');
-
-
 }
 
 function close_order() {

@@ -1,9 +1,9 @@
 #order_window {
   width: 100%;
-  background: $dark;
+  //background: $dark;
   padding: 100px 10px;
   overflow-y: scroll;
-  min-height: 100%;
+  //min-height: 100%;
 
   .order_title {
     margin: 0 auto;
@@ -267,5 +267,5 @@ ul.slick-dots {
   overflow-y:scroll;
   transition: height ease-in-out .4s;
   max-height: 100vh;
-  min-height: 100%;
+  background: $dark;
 }
