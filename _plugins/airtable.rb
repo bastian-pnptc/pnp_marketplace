@@ -4,11 +4,11 @@ require 'active_support/all'
 # require 'active_support/all'
 
 # Pass in api key to client
-@client = Airtable::Client.new("ENV['API_KEY']")
+@client = Airtable::Client.new(ENV['API_KEY'])
 
 # Pass in the app key and table name
 
-@table = @client.table("ENV['TABLE_KEY']", "Products")
+@table = @client.table(ENV['TABLE_KEY'], "Products")
 @records = @table.records()
 
 # Change the filename here below but make sure it's in the _data folder.
