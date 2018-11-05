@@ -1,11 +1,9 @@
 #order_window {
   width: 100%;
-  min-height: 80vh;
   background: $dark;
-  padding: 100px 0;
-  max-height: 100vh;
+  padding: 100px 10px;
   overflow-y: scroll;
-  height: 100%;
+  min-height: 100%;
 
   .order_title {
     margin: 0 auto;
@@ -18,7 +16,7 @@
 
   form.order {
     display: block;
-    min-height: calc(100% - 202px); // header 108 + buttons 94
+    //min-height: calc(100% - 202px); // header 108 + buttons 94
   }
 
   form.order label {
@@ -104,9 +102,10 @@ form.order .order_field {
 .slick-slider .slick-list,
 .slick-slide>div,
 .step,
-.step .step_container {
+.step .step_container
+{
   height: 100%;
-  @include display_flex;
+  //@include display_flex;
 }
 
 .slick-slide {
@@ -265,5 +264,6 @@ ul.slick-dots {
 .order_window__container {
   height: 0;
   overflow: hidden;
+  overflow-y:scroll;
   transition: height ease-in-out .4s;
 }

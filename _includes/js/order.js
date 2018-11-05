@@ -10,7 +10,8 @@ $('#order_window .order_steps').on('init', function(){
   nextArrow: document.getElementById('btn_next'),
   prevArrow: document.getElementById('btn_prev'),
   appendDots: document.getElementById('order_title'),
-  dots: true
+  dots: true,
+  adaptiveHeight: true
 });
 
 function setTitle(currentSlide) {
