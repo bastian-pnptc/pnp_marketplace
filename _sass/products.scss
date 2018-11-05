@@ -30,7 +30,26 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      background: rgba(227, 242, 253, .3);
+      //background: rgba(227, 242, 253, .3);
+      background: linear-gradient(
+        to bottom,
+        hsla(0, 0%, 0%, 0) 0%,
+        hsla(0, 0%, 0%, 0.01) 10.6%,
+        hsla(0, 0%, 0%, 0.036) 20.3%,
+        hsla(0, 0%, 0%, 0.078) 29.2%,
+        hsla(0, 0%, 0%, 0.132) 37.4%,
+        hsla(0, 0%, 0%, 0.194) 45%,
+        hsla(0, 0%, 0%, 0.264) 52%,
+        hsla(0, 0%, 0%, 0.338) 58.5%,
+        hsla(0, 0%, 0%, 0.412) 64.6%,
+        hsla(0, 0%, 0%, 0.486) 70.3%,
+        hsla(0, 0%, 0%, 0.556) 75.6%,
+        hsla(0, 0%, 0%, 0.618) 80.7%,
+        hsla(0, 0%, 0%, 0.672) 85.7%,
+        hsla(0, 0%, 0%, 0.714) 90.5%,
+        hsla(0, 0%, 0%, 0.74) 95.2%,
+        hsla(0, 0%, 0%, 0.75) 100%
+      );
     }
     .error_message {
       position: absolute;
@@ -69,30 +88,48 @@
     font-weight: 300;
     margin: 20px;
     color: white;
+    z-index: 99;
   }
   .top_bar {
     border-bottom: 1px solid $arctic;
-    height: 60px;
+    min-height: 60px;
+    background: $gray;
     @include display_flex;
-    @include justify-content(center);
+    @include justify-content(flex-start);
     @include align-items(center);
     .top_bar__el {
       @include display_flex;
-      @include justify-content(center);
+      @include justify-content(flex-start);
       @include align-items(center);
-      width: 50%;
+      flex-wrap: wrap;
+      padding: 20px;
       height: 100%;
+      &:first-of-type {
+        min-width: 50%;
+        p {
+          font-size: .7rem;
+          color: $gray;
+          background: white;
+          padding: 4px 9px;
+          line-height: 1em;
+          border-radius: 40px;
+          font-weight: 700;
+          margin: 2px 5px 2px 0;
+          &.in_stock {
+            color: $green;
+          }
+          &.out_of_stock {
+            color: $red;
+          }
+          &.ondemand {
+            color: $yellow;
+          }
+        }
+      }
       &:not(:first-of-type) {
-        background-color: $arctic;
-      }
-      &.in_stock {
-        color: $green;
-      }
-      &.out_of_stock {
-        color: $red;
-      }
-      &.ondemand {
-        color: $yellow;
+        // background-color: $arctic;
+        color: white;
+        flex: 1 0 auto;
       }
     }
   }
@@ -116,6 +153,7 @@
     @include align-items(center);
     .input_el {
       height: 100%;
+      width: calc(100%/3);
       input {
         height: 100%;
         box-sizing: border-box;
@@ -129,6 +167,7 @@
         background: none;
         color: $dark-font;
         font-size: 2rem;
+        background: mistyrose;
         //background: rgba(255, 255, 255, 0.4);
         //background: $arctic;
         padding: 25px;
@@ -149,7 +188,7 @@
       }
     }
     .result {
-      width: 50%;
+      width: calc(100%/3);
       height: 100%;
       @include display_flex;
       @include align-items(center);
@@ -159,14 +198,14 @@
     }
     .order_btn {
       cursor: pointer;
-      background: $dark-font;
+      background: $gray;
       height: 100%;
       //padding: 0 20px;
       @include display_flex;
       @include justify-content(center);
       @include align-items(center);
       flex: 1 0 auto;
-      @include link-mix($main);
+      @include link-mix(white);
       a {
         width: 100%;
         height: 100%;

@@ -7,8 +7,9 @@
   </div>
   <div class="">
     <div class="top_bar">
-      <div class="top_bar__el ttu f6 b{% if product.ondemand %} ondemand{% elsif product.stock > 0 %} in_stock{% elsif product.stock == 0 %} out_of_stock{% endif %}">
-        <p>{% if product.ondemand %}ondemand{% else %}Stock: {{ product.stock }}{% endif %}</p>
+      <div class="top_bar__el ttu">
+        <p class="{% if product.ondemand %} ondemand{% elsif product.stock > 0 %} in_stock{% elsif product.stock == 0 %} out_of_stock{% endif %}">{% if product.ondemand %}ondemand{% elsif product.stock == 0 %}Out of Stock{% else %}Stock: {{ product.stock }}{% endif %}</p>
+        <p>{{ product.categorie }}</p>
       </div>
       <div class="top_bar__el">
         <p>€ {{ product.price }}<sub> /piece</sub></p>
@@ -30,13 +31,18 @@
   </div>
   <div class="order_element">
     <div class="input_amount input_el">
-      <span>Qt. / Amount</span>
-      <input type="number" name="amount" placeholder="0" data-price="{{ product.price }}">
+      {%- unless product.order_link -%}
+      <!-- <span>Qt. / Amount</span> -->
+      <input type="number" name="amount" placeholder="Amount" data-price="{{ product.price }}">
+      {%- endunless -%}
     </div>
     <div class="result order_price">
-      <span>Order Price</span>
-      <p class="output"></p>
+      {%- unless product.order_link -%}
+      <!-- <span>Total Price</span> -->
+      <p class="output ttu">Total</p>
+      {%- endunless -%}
     </div>
+
     <div class="order_btn{%  unless product.order_link %} js_order{% endunless %}">
       {%-  if product.order_link -%}
         <a href="{{ product.order_link }}" class="ttu b">Order now</a>

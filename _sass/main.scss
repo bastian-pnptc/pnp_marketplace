@@ -1,6 +1,7 @@
 // colors
 $main: #14222b;
 $dark: #546E7A;
+$gray: #35454f;
 $accent: #7CB342;
 $green: #00a45d;
 $arctic: rgb(227, 242, 253);
@@ -145,6 +146,10 @@ justify-content: $justify;
 .warning {
   color: $red;
   font-weight: 700;
+}
+
+.dark-font {
+  color: $dark-font;
 }
 
 p {
