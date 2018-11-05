@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- include order.html -%}
+<div class="pnp_main">
+  <div class="pnp_intro">
+    {%- include header.html -%}
+    {%- include intro_text.html -%}
+    {%- include products_overview.html -%}
+  </div>
+
+  {{ content }}
+
+  {%- include footer.html -%}
+</div>

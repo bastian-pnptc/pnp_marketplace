@@ -1,0 +1,11 @@
+verticals:
+  - name: Berlin
+    data: berlin
+  - name: Startup Autobahn
+    data: stuttgart_startupautobahn
+  - name: Munich | PNP Health
+    data: munich_health
+  - name: Munich | PNP Health
+    data: munich_health
+  - name: Frankfurt
+    data: frankfurt

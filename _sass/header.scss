@@ -1,0 +1,53 @@
+header {
+  @include display_flex;
+  @include align-items(center);
+  @include justify-content(space-between);
+  height: 170px;
+  .pnp_logo {
+    padding: 50px 10px 50px 10px;
+    width: 300px;
+    svg  {
+      fill: white;
+    }
+    @include media-query($small){
+      padding: 50px 0 50px 80px;
+    };
+  }
+  .pnp_nav_els {
+    height: 100%;
+    @include display_flex;
+    @include align_items(center);
+  }
+  // .pnp_menu {
+  //   @include display_flex;
+  //   @include justify-content(center);
+  //   @include align-items(center);
+  //   background: rgba(255, 255, 255, .7);
+  //   width: 170px;
+  //   height: 100%;
+  //   svg {
+  //     fill: $main;
+  //     width: 25px;
+  //     height: 25px;
+  //   }
+  // }
+  ul {
+    list-style: none;
+    @include display_flex;
+    @include align-items(center);
+    display: none;
+    @include media-query($medium){
+      display: block;
+    };
+    li {
+      display: inline-block;
+      padding-right: 80px;
+      @include link-mix(white);
+      font-weight: 500;
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}

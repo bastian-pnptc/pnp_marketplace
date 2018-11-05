@@ -1,0 +1,109 @@
+<div class="order_window__container">
+  <div id="order_window">
+    <div class="order_title sans-serif white" id="order_title">
+      <p class="f6 ttu">PNP Germany Order Form</p>
+      <h2></h2>
+    </div>
+
+    <form class="order" name="pnp_order" method="POST" netlify>
+      <div class="order_steps">
+        <div class="step step_1" data-title="1. Contact Details">
+          <div class="step_container">
+            <div class="order_field">
+              <label class="sans-serif" for="name">First Name</label>
+              <input class="sans-serif" type="text" name="first name" id="input_firstname">
+            </div>
+            <div class="order_field">
+              <label class="sans-serif" for="name">Last Name</label>
+              <input class="sans-serif" type="text" name="last name" id="input_lastname">
+            </div>
+            <div class="order_field">
+              <label class="sans-serif" for="name">E-Mail | name@mail.com</label>
+              <input class="sans-serif" type="email" name="email" id="input_email">
+            </div>
+          </div>
+        </div>
+
+        <div class="step step_2" data-title="2. Billing/Shipping Information">
+          <div class="step_container">
+            <div class="order_field">
+              <label class="sans-serif" for="name">Vertical | Which should be billed and added as a recepient</label>
+              <select name="locations" class="sans-serif" id="input_location">
+                {%- for vertical in site.data.verticals.verticals -%}
+                <option value="{{ vertical.data }}">{{ vertical.name }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="step step_3" data-title="3. Review & Checkout">
+          <div class="step_container">
+            <div class="review_content">
+
+              <div class="review__product_info">
+                <div class="product_el br5 bg_white">
+
+                  <div class="product__image" id="order__product-img">
+                  </div>
+
+                  <div class="product__information sans-serif white">
+                    <h2 class="f3 inner_card" id="order__product-name">Product Name</h2>
+                    <p class="measure inner_card f6" id="order__product-desc" class="clamp"></p>
+                    <div class="per_piece f6">
+                      <p>Price per piece: € <span id="order__product-price"></span>  </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="checkout_numbers sans-serif white">
+
+                  <div class="bg_white checkout__number br5">
+                    <span class="ttu f6">amount</span>
+                    <p class="number__item" id="order__product-amount"></p>
+                  </div>
+                  <div class="bg_white checkout__number br5">
+                    <span class="ttu f6">Price Complete  </span>
+                    <p class="number__item" id="order__product-result"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review__shipping_info">
+                <div class="checkout_item checkout_user sans-serif">
+                  <h3 class="ttu white f5 op4">Contact Information</h3>
+                  <p class="js_input white"><span id="js_firstname"></span> <span id="js_lastname"></span></p>
+                  <p class="js_input white" id="js_email"></p>
+                </div>
+
+                <div class="checkout_item checkout_shipping sans-serif">
+                  <h3 class="ttu white f5 op4">Shipping/Billing Information</h3>
+                  <p class="white f6 op4">The ordered products will be shipped to the Headquarter of this location. The payment will be handled internally and deducted from the locations budget.</p>
+                  <p class="js_input white" id="js_location"></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form_btns">
+        <div class="btn ttu br5 ab b--white b--solid sans-serif white" id="btn_next">
+          <p>Next</p>
+        </div>
+        <button id="submit_btn" class="btn ttu br5 ab b--white b--solid sans-serif white" type="submit"><p>Submit Order</p></button>
+        <div class="btn ttu sans-serif white op4" id="btn_prev">
+          <p>Back</p>
+        </div>
+        <div class="btn ttu sans-serif warning" id="btn_cancel">
+          <p>Cancel</p>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

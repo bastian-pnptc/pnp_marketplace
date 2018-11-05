@@ -1,0 +1,48 @@
+<div class="product_item grid_item bg_arctis br2 sans-serif container" data-product_title="{{ product.title | url_encode }}" data-product_price="{{ product.price | url_encode }}" data-product_id="{{ product.product_id | url_encode }}" data-product_description="{{ product.description | markdownify | strip_html | url_encode }}" data-product_image="{{ product.image[0].thumbnails.large.url }}" data-product_stock="{{ product.stock }}">
+  <div class="thumbnail" style="background-image: url('{{ product.image[0].thumbnails.large.url }}')">
+    <div class="error_message" onclick="">
+      <p></p>
+    </div>
+    <h2>{{ product.title }}</h2>
+  </div>
+  <div class="">
+    <div class="top_bar">
+      <div class="top_bar__el ttu f6 b{% if product.ondemand %} ondemand{% elsif product.stock > 0 %} in_stock{% elsif product.stock == 0 %} out_of_stock{% endif %}">
+        <p>{% if product.ondemand %}ondemand{% else %}Stock: {{ product.stock }}{% endif %}</p>
+      </div>
+      <div class="top_bar__el">
+        <p>€ {{ product.price }}<sub> /piece</sub></p>
+      </div>
+    </div>
+    <div class="product_details">
+      <table>
+        <tr>
+          <td>Product ID:</td>
+          <td>{{ product.product_id }}</td>
+        </tr>
+        <tr>
+          <td>Online since:</td>
+          <td>{{ product.created_at }}</td>
+        </tr>
+      </table>
+      <p>{{ product.description | markdownify }}</p>
+    </div>
+  </div>
+  <div class="order_element">
+    <div class="input_amount input_el">
+      <span>Enter Amount</span>
+      <input type="number" name="amount" placeholder="0" data-price="{{ product.price }}">
+    </div>
+    <div class="result order_price">
+      <span>Order Price</span>
+      <p class="output"></p>
+    </div>
+    <div class="order_btn{%  unless product.order_link %} js_order{% endunless %}">
+      {%-  if product.order_link -%}
+        <a href="{{ product.order_link }}" class="ttu b">Order now</a>
+      {%-  else -%}
+        <p class="ttu b">Order now</p>
+      {%-  endif -%}
+    </div>
+  </div>
+</div>

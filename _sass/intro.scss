@@ -1,0 +1,13 @@
+.pnp_intro {
+  background: $main;
+  padding-bottom: 200px;
+}
+
+.intro_text {
+  padding: 0 10% 0 10px;
+  font-size: .85rem;
+  @include media-query($small){
+    padding-left: 80px;
+    padding-right: 0;
+  };
+}

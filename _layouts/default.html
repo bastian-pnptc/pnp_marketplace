@@ -1,0 +1,18 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+    {{ content }}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {%- if page.layout == 'home' -%}
+      <script type="text/javascript" src="{{ "/assets/js/home.js" | prepend: site.baseurl}}"></script>
+    {%- endif -%}
+  </body>
+
+</html>

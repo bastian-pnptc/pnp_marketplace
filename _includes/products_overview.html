@@ -1,0 +1,5 @@
+<div class="products_container container">
+  {% for product in site.data.products %}
+    {%- include product.html -%}
+  {% endfor %}
+</div>

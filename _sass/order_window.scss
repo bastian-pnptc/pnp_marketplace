@@ -1,0 +1,262 @@
+#order_window {
+  width: 100%;
+  min-height: 80vh;
+  background: $dark;
+  padding: 100px 0;
+  max-height: 100vh;
+  overflow-y: scroll;
+  height: 100%;
+
+  .order_title {
+    margin: 0 auto;
+    max-width: 700px;
+    h2 {
+      font-size: 3rem;
+      margin: 0;
+    }
+  }
+
+  form.order {
+    display: block;
+    min-height: calc(100% - 202px); // header 108 + buttons 94
+  }
+
+  form.order label {
+    display: block;
+  	float: left;
+  	background: $dark;
+  	height: 14px;
+  	padding: 2px 5px 2px 5px;
+  	color: #B9B9B9;
+  	font-size: 11px;
+  	overflow: hidden;
+  	text-transform: uppercase;
+    font-weight: 500;
+  }
+  form.order input,
+  form.order textarea,
+  form.order select {
+  	box-sizing: border-box;
+  	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	width: 100%;
+  	display: block;
+  	outline: none;
+  	border: none;
+  	line-height: 25px;
+    background: none;
+    color: white;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, .4);
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 16px;
+  }
+  form.order select {
+    height: 65px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  form.order .step_container {
+    max-width: 700px;
+    margin: 0 auto;
+    .sidebyside {
+      @include display_flex;
+      width: 100%;
+      >div:not(:first-of-type) {
+        margin-left: 10px;
+      }
+    }
+    .w30 {
+      width: 30%;
+    }
+    .w70 {
+      width: 70%;
+    }
+  }
+  form.order .step_3>.step_container {
+    max-width: 1200px;
+  }
+}
+
+
+form.order .order_field {
+  width: 100%;
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+}
+
+.order_steps {
+  width: 100%;
+  height: 100%;
+  .step_container {
+    @include display_flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include direction_column;
+    padding: 50px 0 0;
+  }
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list,
+.slick-slide>div,
+.step,
+.step .step_container {
+  height: 100%;
+  @include display_flex;
+}
+
+.slick-slide {
+  height: unset;
+}
+
+.review_content {
+  width: 100%;
+  @include media-query($medium) {
+    @include display_flex;
+    &>.review__product_info {
+      width: 60%;
+    }
+    &>.review__shipping_info {
+      width: 40%;
+      padding-left: 50px;
+    }
+  };
+}
+.product_el {
+  border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  @include display_flex;
+  @include direction_row;
+  .inner_card {
+    padding: 20px 20px 0;
+  }
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  p {
+
+  }
+  .per_piece {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    border-top: 2px solid rgba(255, 255, 255, .4);
+  }
+  .product__image {
+    flex: 0 1 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .product__information {
+    flex: 1 0 calc(100% - 200px);
+  }
+}
+
+.checkout_numbers {
+  @include display_flex;
+  @include direction_row;
+  .checkout__number {
+    @include display_flex;
+    @include justify-content(flex-end);
+    @include align-items(flex-end);
+    width: 30%;
+    height: 100px;
+    margin-top: 10px;
+    position: relative;
+    &:nth-of-type(2) {
+      width: 70%;
+      margin-left: 10px;
+    }
+    span {
+      padding: 10px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .number__item {
+      padding: 10px;
+      font-size: 2.3rem;
+      line-height: 1em;
+    }
+  }
+}
+
+.checkout_item {
+  margin-top: 50px;
+  @include media-query($medium){
+    margin-top: 0;
+  };
+}
+
+.js_input {
+  margin-top: 10px;
+  &+.js_input {
+    margin-top: 0px;
+  }
+}
+
+.form_btns {
+  max-width: 700px;
+  margin: 50px auto 0;
+  .btn.slick-disabled {
+    visibility: hidden;
+  }
+  #submit_btn {
+    display: none;
+    &.active {
+      display: inline-block;
+    }
+  }
+  #btn_next.deactivated {
+    display: none;
+  }
+}
+
+ul.slick-dots {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+  }
+  button {
+    display: none;
+  }
+  li {
+    display: inline;
+    padding-right: 20px;
+    opacity: .4;
+    &.slick-active {
+      opacity: 1;
+    }
+    &:before {
+      content: '';
+      background: white;
+      width: 50px;
+      height: 2px;
+      display: inline-block;
+    }
+  }
+}
+
+// Reveal
+
+.order_window__container {
+  height: 0;
+  overflow: hidden;
+  transition: height ease-in-out .4s;
+}

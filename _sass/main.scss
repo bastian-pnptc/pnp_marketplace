@@ -1,0 +1,178 @@
+// colors
+$main: #BDBDBD;
+$dark: #546E7A;
+$accent: #7CB342;
+$green: #00a45d;
+$arctic: rgb(227, 242, 253);
+$yellow: #FF6F00;
+$dark-font: #424242;
+$red: #FF1744;
+
+// device width (use bootstrap)
+//$xtra-large: none !default;
+$xtra-large: 1350px !default;
+$large: 1199px !default;
+$medium: 991px !default;
+$small: 767px !default;
+$xtra-small: 575px !default;
+
+// mixins for flexbox
+@mixin display_flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin align-items($align){
+  -webkit-align-items: $align;
+  -moz-align-items: $align;
+  -ms-align-items: $align;
+  align-items: $align;
+}
+
+@mixin justify-content($justify) {
+-webkit-justify-content: $justify;
+-moz-justify-content: $justify;
+-ms-justify-content: $justify;
+justify-content: $justify;
+}
+
+@mixin direction_column {
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin direction_row {
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+@mixin direction_row_reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -moz-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+// mixin for media-querys
+@mixin media-query($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+// color mixin for links
+@mixin link-mix($mixin-color) {
+  color: $mixin-color;
+  a {
+    color: $mixin-color;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+      text-decoration: none;
+      color: $mixin-color;
+    }
+  }
+}
+
+@mixin pure-link($mixin-color) {
+  color: $mixin-color;
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus {
+    text-decoration: none;
+    color: $mixin-color;
+  }
+}
+
+// Tachyons
+.measure-wide {
+  max-width: 40em;
+}
+
+// Generel
+
+.br5 {
+  border-radius: 5px;
+}
+
+.btn {
+  border-width: 1px;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: none;
+}
+
+.op4 {
+  opacity: .4;
+}
+
+.bg_white {
+  background: rgba(255, 255, 255, .4);
+}
+
+.bg_arctis {
+  background: rgba(227, 242, 253, .4);
+}
+
+.sd {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.warning {
+  color: $red;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  line-height: 1.4em;
+}
+
+body.deactivated {
+  overflow: hidden;
+  &>.pnp_main {
+    position: relative;
+    &:before {
+      width: 100%;
+      height: 100%;
+      content: '';
+      background: black;
+      opacity: .8;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity ease-in-out .4s;
+      z-index: 999;
+    }
+  }
+}
+
+@import
+  "import/normalize",
+  "header",
+  "intro",
+  "import/slick",
+  "order_window",
+  "products",
+  "footer"
+;
