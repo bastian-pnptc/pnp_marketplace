@@ -103,6 +103,8 @@ function open_order() {
     'height': order_height,
   });
   $('body').addClass('deactivated');
+
+
 }
 
 function close_order() {
@@ -142,24 +144,24 @@ function set_order_info(product_details) {
 
   var product_price = decode_info(product_details[1])
   $('#order__product-price').text( product_price );
-  $('#form_product_price').val( product_title );
+  $('#form_product_price').val( product_price );
 
   var product_id = product_details[2];
-  $('#form_product_id').val( product_title );
+  $('#form_product_id').val( product_id );
 
   var product_desc = decode_info(product_details[3]);
   $('#order__product-desc').text( product_desc ).shave(150);
-  $('#form_product_desc').val( product_title );
+  $('#form_product_desc').val( product_desc );
 
   $('#order__product-img').css('background-image', 'url(' + product_details[4]) +')';
 
   var product_amount = product_details[5];
   $('#order__product-amount').text(product_amount + ' x');
-  $('#form_product_amount').val( product_title );
+  $('#form_product_amount').val( product_amount );
 
   var product_result = product_details[6];
   $('#order__product-result').text( product_result );
-  $('#form_product_result').val( product_title );
+  $('#form_product_result').val( product_result );
 
   var product_stock = product_details[7];
   $('#form_product_stock_ondemand').val( product_stock );
