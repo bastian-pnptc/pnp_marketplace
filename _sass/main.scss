@@ -1,5 +1,5 @@
 // colors
-$main: #BDBDBD;
+$main: #14222b;
 $dark: #546E7A;
 $accent: #7CB342;
 $green: #00a45d;
@@ -127,6 +127,10 @@ justify-content: $justify;
 
 .bg_arctis {
   background: rgba(227, 242, 253, .4);
+}
+
+.bg_white {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .sd {
