@@ -94,6 +94,7 @@ $('.error_message').click( function(){
 })
 
 function open_order() {
+  $('#order_window .order_steps').slick('slickGoTo', 0);
   $('html, body').animate({
     scrollTop: 0
   }, 400);
@@ -126,19 +127,40 @@ function get_product_info(product) {
   var id = product.data('product_id');
   var description = product.data('product_description');
   var image = product.data('product_image');
+  var stock = product.data('product_stock');
   var amount = product.find('.input_amount input').val();
   var result = product.find('.result .output').text();
   var product_details = [];
-  product_details.push(title, price, id, description, image, amount, result);
+  product_details.push(title, price, id, description, image, amount, result, stock);
   return(product_details);
 }
 
 function set_order_info(product_details) {
-  $('#order__product-name').text(decode_info(product_details[0]));
-  $('#order__product-price').text(decode_info(product_details[1]));
-  //').text(product_details[2]);
-  $('#order__product-desc').text(decode_info(product_details[3])).shave(150);
+  var product_title = decode_info(product_details[0]);
+  $('#order__product-name').text( product_title );
+  $('#form_product_title').val( product_title );
+
+  var product_price = decode_info(product_details[1])
+  $('#order__product-price').text( product_price );
+  $('#form_product_price').val( product_title );
+
+  var product_id = product_details[2];
+  $('#form_product_id').val( product_title );
+
+  var product_desc = decode_info(product_details[3]);
+  $('#order__product-desc').text( product_desc ).shave(150);
+  $('#form_product_desc').val( product_title );
+
   $('#order__product-img').css('background-image', 'url(' + product_details[4]) +')';
-  $('#order__product-amount').text(product_details[5] + ' x');
-  $('#order__product-result').text(product_details[6]);
+
+  var product_amount = product_details[5];
+  $('#order__product-amount').text(product_amount + ' x');
+  $('#form_product_amount').val( product_title );
+
+  var product_result = product_details[6];
+  $('#order__product-result').text( product_result );
+  $('#form_product_result').val( product_title );
+
+  var product_stock = product_details[7];
+  $('#form_product_stock_ondemand').val( product_stock );
 }

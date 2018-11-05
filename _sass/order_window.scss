@@ -266,4 +266,5 @@ ul.slick-dots {
   overflow: hidden;
   overflow-y:scroll;
   transition: height ease-in-out .4s;
+  max-height: 100vh;
 }

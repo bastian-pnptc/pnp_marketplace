@@ -1,4 +1,4 @@
-<div class="product_item grid_item bg_arctis br2 sans-serif container" data-product_title="{{ product.title | url_encode }}" data-product_price="{{ product.price | url_encode }}" data-product_id="{{ product.product_id | url_encode }}" data-product_description="{{ product.description | markdownify | strip_html | url_encode }}" data-product_image="{{ product.image[0].thumbnails.large.url }}" data-product_stock="{{ product.stock }}">
+<div class="product_item grid_item bg_arctis br2 sans-serif container" data-product_title="{{ product.title | url_encode }}" data-product_price="{{ product.price | url_encode }}" data-product_id="{{ product.product_id | url_encode }}" data-product_description="{{ product.description | markdownify | strip_html | url_encode }}" data-product_image="{{ product.image[0].thumbnails.large.url }}" data-product_stock="{% if product.ondemand %}ondemand{% else %}{{ product.stock }}{% endif %}">
   <div class="thumbnail" style="background-image: url('{{ product.image[0].thumbnails.large.url }}')">
     <div class="error_message" onclick="">
       <p></p>
@@ -30,7 +30,7 @@
   </div>
   <div class="order_element">
     <div class="input_amount input_el">
-      <span>Enter Amount</span>
+      <span>Qt. / Amount</span>
       <input type="number" name="amount" placeholder="0" data-price="{{ product.price }}">
     </div>
     <div class="result order_price">
