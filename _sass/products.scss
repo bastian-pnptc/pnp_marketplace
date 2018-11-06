@@ -207,7 +207,6 @@
       flex: 1 0 auto;
       @include link-mix(white);
       a {
-        width: 100%;
         height: 100%;
         @include display_flex;
         @include align-items(center);
