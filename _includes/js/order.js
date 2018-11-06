@@ -136,7 +136,7 @@ function get_product_info(product) {
   var description = product.data('product_description');
   var image = product.data('product_image');
   var stock = product.data('product_stock');
-  var stock = product.data('product_categorie');
+  var categorie = product.data('product_categorie');
   var amount = product.find('.input_amount input').val();
   var result = product.find('.result .output').text();
   var product_details = [];
