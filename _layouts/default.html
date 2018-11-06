@@ -12,6 +12,11 @@ layout: compress
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {%- if page.layout == 'home' -%}
       <script type="text/javascript" src="{{ "/assets/js/home.js" | prepend: site.baseurl}}"></script>
+      <script type="text/javascript">
+        jQuery(document).ready(function() {
+          jQuery("time.timeago").timeago();
+        });
+      </script>
     {%- endif -%}
   </body>
 

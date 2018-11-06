@@ -6,6 +6,21 @@ header {
   .pnp_logo {
     padding: 50px 10px 50px 10px;
     width: 300px;
+    &>.logo_el {
+      position: relative;
+      &:before {
+        content: 'beta';
+        background: $green;
+        padding: 2px 10px;
+        border-radius: 8px;
+        font-size: .8rem;
+        color: white;
+        position: absolute;
+        left: calc(100% + 10px);
+        bottom: 100%;
+        transform: translateY(50%);
+      }
+    }
     svg  {
       fill: white;
     }
