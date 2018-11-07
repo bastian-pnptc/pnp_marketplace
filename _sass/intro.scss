@@ -10,4 +10,9 @@
     padding-left: 80px;
     padding-right: 0;
   };
+  p {
+    &+p {
+      margin-top: 1em;
+    }
+  }
 }
