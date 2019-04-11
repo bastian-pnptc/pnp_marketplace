@@ -1,0 +1,67 @@
+body.deactivated {
+    overflow: hidden;
+    section#warning-message {
+        display: block;
+    }
+}
+
+section#warning-message {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    .message {
+        z-index: 99999;
+        background: red;
+        width: 90%;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        max-width: 800px;
+    }
+    .content {
+       padding: 20px 25px 20px;
+       @include media-query($medium) {
+           padding: 50px 50px;
+       }
+    }
+    .action {
+        padding: 30px 25px 30px;
+        @include media-query($medium) {
+           padding: 25px 50px;
+        }
+        border-top: 1px solid white;
+    }
+    p, a, button, h2 {
+        color: white;
+        font-family: $sans-serif;
+        font-size: .9em;
+
+    }
+    h2 {
+        font-size: 1.1em;
+    }
+    button {
+        border-radius: 5px;
+        background: none;
+        border: 2px solid white;
+        padding: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+    a.email_link {
+        font-size: .7em;
+        margin: 15px 0;
+        display: inline-block;
+    }
+    .no_break {
+        white-space: nowrap;
+    }
+}
