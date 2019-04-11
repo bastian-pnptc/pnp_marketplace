@@ -32,7 +32,7 @@ section#warning-message {
        }
     }
     .action {
-        padding: 30px 25px 30px;
+        padding: 20px 25px 5px;
         @include media-query($medium) {
            padding: 25px 50px;
         }
